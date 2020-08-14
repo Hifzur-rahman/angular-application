@@ -1,0 +1,148 @@
+<section>
+    <div class="row">
+        <div class="container">
+            <div class="jumbotron">
+                <h3 class="text-center">Sign Up</h3>
+              </div>
+
+            <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6" [formGroup]="form">
+                    <label for="firstname">First Name</label>
+
+                    <input type="text" class="form-control" [(ngModel)]="user.firstname" name="firstname" placeholder="First Name"
+                     formControlName="fName" [ngClass]="{'is-invalid': form.get('fName').touched && form.get('fName').invalid}" />
+
+                    <div class="invalid-feedback">
+                      <div> Please Enter Your First Name </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group col-md-6" [formGroup]="form">
+                    <label for="lastname">Last Name</label>
+
+                    <input type="text" class="form-control" [(ngModel)]="user.lastname" name="lastname" placeholder="Last Name"
+                    formControlName="lName" [ngClass]="{'is-invalid': form.get('lName').touched && form.get('lName').invalid}" />
+
+                    <div class="invalid-feedback">
+                      <div> Please Enter Your Last Name </div>
+                    </div>
+
+                  </div>
+
+                  <!-- <div class="form-group col-md-6">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password"
+                     />
+
+                    <div  *ngIf="form.get('pword').touched && form.get('pword').invalid}">
+                      <span *ngIf="form.controls.pword.errors.passwordValidity; else elseBlock">
+                        * Password doe's nt match
+                      </span>
+                      <ng-template #elseBlock>
+                        * Password required
+                      </ng-template>
+                    </div>
+
+                  </div> -->
+
+                  <div class="form-group col-md-6" [formGroup]="form" >
+                    <label>Password*</label>
+                    <input class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="user.password" placeholder="Enter your password" 
+                    formControlName="password" type="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}"/>
+                    <div *ngIf="form.get('password').touched && form.get('password').invalid"  class="invalid-feedback">
+                      <div *ngIf="form.get('password').errors.required">Password is required</div>
+                      <div *ngIf="form.get('password').errors.pattern">Password must be a one lowercase, uppercase, number</div>
+                      <div *ngIf="form.get('password').errors.minlength">Password must be a 8</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="confrimpassword">Confrim Password</label>
+                    <input type="password" class="form-control" [(ngModel)]="user.confrimpassword" name="confrimpassword" placeholder="Confrim Password"
+                    />
+
+                    <!-- <div *ngIf="form.get('confpass').touched && form.get('confpass').invalid}">
+                      <span *ngIf="form.controls.confpass.errors.passwordValidity; else elseBlock">
+                        * Password doe's nt match
+                      </span>
+                      <ng-template #elseBlock>
+                        * Password required
+                      </ng-template>
+                    </div> -->
+                    
+                  </div>
+
+                
+
+
+
+                </div>
+               
+                
+                <div class="form-row">
+                  <div class="form-group col-md-6" [formGroup]="form">
+                    <label for="email">E mail</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.email" name="email" placeholder="E mail" 
+                    formControlName="emailId" [ngClass]="{'is-invalid': form.get('emailId').touched && form.get('emailId').invalid}" />
+
+                    <div *ngIf="form.get('emailId').touched && form.get('emailId').invalid" class="invalid-feedback">
+                      <div *ngIf="form.get('emailId').errors.required"> Please Enter Your Email </div>
+                      <div *ngIf="form.get('emailId').errors.email"> Email must be a valid Address</div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group col-md-4" [formGroup]="form">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.mobile"
+                    name="mobile" placeholder="Mobile"
+                    formControlName="mobileNo" [ngClass]="{'is-invalid': form.get('mobileNo').touched && form.get('mobileNo').invalid}">
+
+
+                    <div *ngIf="form.get('mobileNo').touched && form.get('mobileNo').invalid" class="invalid-feedback">
+                      <div *ngIf="form.get('mobileNo').errors.required"> Mobile Numbber is Required</div>
+                      <div *ngIf="form.get('mobileNo').errors.minlength"> Please enter atleat 10 characters </div>
+                    </div>
+
+                   <!-- <div *ngIf="mobNumber.errors && form.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+                    <div *ngIf="mobNumber.errors.pattern">  
+                      Mobile number not valid.  
+                    </div>   
+                  </div>  -->
+
+                  </div>
+
+                  <div class="form-group col-md-2" [formGroup]="form">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.zip" name="zip" placeholder=" Zip Code" 
+                    formControlName="zipcode" [ngClass]="{'is-invalid': form.get('zipcode').touched && form.get('zipcode').invalid}" />
+
+                    <div *ngIf="form.get('zipcode').touched && form.get('zipcode').invalid" class="invalid-feedback">
+                      <div *ngIf="form.get('zipcode').errors.required"> Zip Code is Required</div>
+                      <div *ngIf="form.get('zipcode').errors.minlength"> Please enter atleat 6 characters </div>
+                    </div>
+
+                  </div>
+                </div>
+                 
+                <div class="row">
+                <div class="col-md-6">
+                <button type="submit" class="btn btn-primary"  (click) = "Submit()">Sign Up</button>
+                </div>
+
+                <div class="col-md-4">
+                <button type="submit" class="btn btn-secondary" (click)= "btnClick()">View</button>
+                </div>
+                </div>
+                
+
+              </form>
+
+        </div>
+    </div>
+</section>
+
+
+

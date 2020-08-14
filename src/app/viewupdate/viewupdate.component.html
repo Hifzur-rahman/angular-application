@@ -1,0 +1,63 @@
+
+<section>
+    <div class="row">
+        <div class="container">
+            <div class="jumbotron">
+                <h3 class="text-center">Sign Up Update</h3>
+              </div>
+
+            <form>
+                <div class="form-row">                 
+
+                  <div class="form-group col-md-6">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="updated.firstname" name="firstname"  placeholder="First Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="updated.lastname" name="lastname" placeholder="Last Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" [(ngModel)]="updated.password" name="password" placeholder="Password">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="confrimpassword">Confrim Password</label>
+                    <input type="text" class="form-control" [(ngModel)]="updated.confrimpassword" name="confrimpassword" placeholder="Confrim Password">
+                  </div>
+                </div>
+               
+                
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="email">E mail</label>
+                    <input type="text" class="form-control" [(ngModel)]="updated.email" name="email" placeholder="E mail">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" class="form-control" [(ngModel)]="updated.mobile" name="mobile" placeholder="Mobile">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" [(ngModel)]="updated.zip" name="zip" placeholder="Zip Code">
+                  </div>
+                </div>   
+                <div class="row">
+                <div class="col-md-6">
+                <button type="submit" class="btn btn-primary"(click)="UpdateItem()" >Update</button>
+                </div>
+
+                <div class="col-md-4">
+                <button type="submit" class="btn btn-danger" (click)= "Goback()">Exit</button>
+                </div>
+                </div>
+                
+
+              </form>
+
+        </div>
+    </div>
+</section>
+
+
+
